@@ -37,20 +37,20 @@ Estas leyes permiten el refactor de lógica compleja, fundamental en [[07. Clean
 1. **Leyes de Morgan**
 - **Negación de la Conjunción (Y)**
 $$\neg(p \land q) \equiv \neg p \vee \neg q$$
-==Se aplica igual sin importar el número de Variables==
+Se aplica igual sin importar el número de Variables
 
 - **Negación de la Disyunción (O)**
 $$\neg(p \vee q) \equiv \neg p \land \neg q$$
-==Se aplica igual sin importar el número de Variables==
+Se aplica igual sin importar el número de Variables
 
 2. **Absorción**
 - *Estandar*: **Conjunción sobre Disyunción**
 $$p \land (p \vee q) \equiv p$$
-==No importa cuántas variables hayan en el paréntesis==
+No importa cuántas variables hayan en el paréntesis
 
 - *Estandar*: **Disyunción sobre Conjunción**
 $$p \vee (p \land q) \equiv p$$
-==No importa cuántas variables hayan en el paréntesis==
+No importa cuántas variables hayan en el paréntesis
 
 - *Estandar*: **Conjunción y Disyunción sobre XNOR**
 $$p \land (p \iff q) \equiv p \land q$$
@@ -140,12 +140,12 @@ $$p \iff q \equiv \neg(p \oplus q)$$
 
 - **Distributiva de Conjunción (AND) sobre XNOR**
 $$p \land (q \iff r) \equiv p \land (q \land r) \vee (\neg q \land \neg r)$$
-==¡OJO! El AND no se puede distribuir de forma normal porque es un Operador de Paridad, no de agrupación simple==
+¡OJO! El AND no se puede distribuir de forma normal porque es un Operador de Paridad, no de agrupación simple
 $$\cancel{p \land (q \iff r) \equiv (p \land q) \iff (p \land r)}$$
 
 - **Distributiva de Disyunción (OR) sobre XNOR**
 $$p \vee (q \iff r) \equiv p \vee (q \land r) \land (\neg q \vee \neg r)$$
-==¡OJO! El AND no se puede distribuir de forma normal porque es un Operador de Paridad, no de agrupación simple==
+¡OJO! El AND no se puede distribuir de forma normal porque es un Operador de Paridad, no de agrupación simple
 $$\cancel{p \vee (q \iff r) \equiv (p \vee q) \iff (p \vee r)}$$
 
 - **XNOR de varias Variables**
