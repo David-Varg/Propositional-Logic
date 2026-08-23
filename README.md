@@ -36,82 +36,107 @@ Estas leyes permiten el refactor de lógica compleja, fundamental en [[07. Clean
 
 1. **Leyes de Morgan**
 - **Negación de la Conjunción (Y)**
+
 $$\neg(p \land q) \equiv \neg p \vee \neg q$$
 
 Se aplica igual sin importar el número de Variables
 
 - **Negación de la Disyunción (O)**
+
 $$\neg(p \vee q) \equiv \neg p \land \neg q$$
 
 Se aplica igual sin importar el número de Variables
 
 2. **Absorción**
 - *Estandar*: **Conjunción sobre Disyunción**
+
 $$p \land (p \vee q) \equiv p$$
 
 No importa cuántas variables hayan en el paréntesis
 
 - *Estandar*: **Disyunción sobre Conjunción**
+
 $$p \vee (p \land q) \equiv p$$
 
 No importa cuántas variables hayan en el paréntesis
 
 - *Estandar*: **Conjunción y Disyunción sobre XNOR**
+
 $$p \land (p \iff q) \equiv p \land q$$
+
 $$p \vee (p \iff q) \equiv p \vee \neg q$$
 
 - *Negación*: **Conjunción sobre Disyunción**
+
 $$p \land(\neg p \lor q) \equiv p \land q$$
 
 - *Negación*: **Disyunción sobre Conjunción**
+
 $$p \lor (\neg p \land q) \equiv p \lor q$$
 
 - *Negación*: **Conjunción y Disyunción sobre XNOR**
+
 $$p \land (\neg p \iff q) \equiv p \land \neg q$$
+
 $$p \vee (\neg p \iff q) \equiv p \vee q$$
 
 3. **Constantes**
 - **Dominación (AND)**
+
 $$p \land \bot \equiv \bot$$
 
 - **Identidad (AND)**
+
 $$p \land \top \equiv p$$
 
 - **Dominación (OR)**
+
 $$p \vee \top \equiv \top$$
 
 - **Identidad (OR)**
+
 $$p \vee \bot \equiv p$$
 
 - **Identidad e Inversión (XNOR)**
+
 $$p \iff \top \equiv p$$
+
 $$p \iff \bot \equiv \neg p$$
 
 - **Identidad e Inversión (XOR)**
+
 $$p \oplus \top \equiv \neg p$$
+
 $$p \oplus \bot \equiv p$$
 
 4. **Implicación y Contra positiva**
 - *Implicación*: **Estándar**
+
 $$p \to q \equiv \neg p \vee q$$
 
 - *Implicación*: **Negación**
+
 $$\neg(p \to q) \equiv p \land \neg q$$
 
 - *Implicación*: **Exportación**
+
 $$(p \land q) \to r \equiv p \to (q \to r)$$
 
 - *Contrapositiva*
+
 $$p \to q \equiv \neg q \to \neg p$$
 
 5. **Distributiva**
 - *Estandar*: **Conjunción sobre Disyunción**
+
 $$p \land (q \vee r) \equiv (p \land q) \vee (p \land r)$$
 
 - *Estandar*: **Disyunción sobre Conjunción**
+
 $$p \vee (q \land r) \equiv (p \vee q) \land (p \vee r)$$
 
 6. **Idempotencia**
+
 $$p \land p \equiv p$$
 
 $$p \vee p \equiv p$$
@@ -121,6 +146,7 @@ $$p \iff p \equiv \top$$
 $$p \oplus p \equiv \bot$$
 
 7. **Conmutativas**
+
 $$p \land q \equiv q \land p$$
 
 $$p \vee q \equiv q \vee p$$
@@ -130,6 +156,7 @@ $$p \iff q \equiv q \iff p$$
 $$p \oplus q \equiv q \oplus p$$
 
 8. **Complemento**
+
 $$p \land \neg p \equiv \bot$$
 
 $$p \vee \neg p \equiv \top$$
@@ -139,6 +166,7 @@ $$p \iff \neg p \equiv \bot$$
 $$p \oplus \neg p \equiv \top$$
 
 9. **Asociativas**
+
 $$p \land (q \land r) \equiv (p \land q) \land r \equiv p \land q \land r$$
 
 $$p \vee (q \vee r) \equiv (p \vee q) \vee r \equiv p \vee q \vee r$$
@@ -149,6 +177,7 @@ $$p \oplus (q \oplus r) \equiv (p \oplus q) \oplus r \equiv p \oplus q \oplus r$
 
 10. **Leyes del Nor-exclusivo (XNOR)**
 - **Equivalencias**
+
 $$p \iff q \equiv (p \to q) \land (q \to p)$$
 
 $$p \iff q \equiv (p \land q) \vee (\neg p \land \neg q)$$
@@ -156,6 +185,7 @@ $$p \iff q \equiv (p \land q) \vee (\neg p \land \neg q)$$
 $$p \iff q \equiv \neg(p \oplus q)$$
 
 - **Distributiva de Conjunción (AND) sobre XNOR**
+
 $$p \land (q \iff r) \equiv p \land (q \land r) \vee (\neg q \land \neg r)$$
 
 ¡OJO! El AND no se puede distribuir de forma normal porque es un Operador de Paridad, no de agrupación simple
@@ -163,6 +193,7 @@ $$p \land (q \iff r) \equiv p \land (q \land r) \vee (\neg q \land \neg r)$$
 $$\cancel{p \land (q \iff r) \equiv (p \land q) \iff (p \land r)}$$
 
 - **Distributiva de Disyunción (OR) sobre XNOR**
+
 $$p \vee (q \iff r) \equiv p \vee (q \land r) \land (\neg q \vee \neg r)$$
 
 ¡OJO! El AND no se puede distribuir de forma normal porque es un Operador de Paridad, no de agrupación simple
@@ -170,15 +201,18 @@ $$p \vee (q \iff r) \equiv p \vee (q \land r) \land (\neg q \vee \neg r)$$
 $$\cancel{p \vee (q \iff r) \equiv (p \vee q) \iff (p \vee r)}$$
 
 - **XNOR de varias Variables**
+
 $$p \iff q \iff r \iff s ...Siguientes$$
 
 *Devuelve True si el número de falsos es par*
 
 - **Asociación por Bloques**
+
 $$(p \iff q) \iff (r \iff s)$$
 
 11. **Leyes de la Disyunción Exclusiva (XOR)**
 - **Equivalencias**
+
 $$p \oplus q \equiv (p \vee q) \land \neg(p \land q)$$
 
 $$p \oplus q \equiv (\neg p \vee q) \land (p \vee \neg q)$$
@@ -186,12 +220,15 @@ $$p \oplus q \equiv (\neg p \vee q) \land (p \vee \neg q)$$
 $$p \oplus q \equiv \neg(p \iff q)$$
 
 - **Distributiva de Conjunción (AND) sobre XOR**
+
 $$p \land (q \oplus r) \equiv (p \land q) \oplus (p \land r)$$
 
 - **Distributiva de Disyunción (OR) sobre XOR**
+
 $$p \vee (q \oplus r) \equiv p \vee (q \vee r) \land (\neg q \vee \neg r)$$
 
 - **XOR de varias Variables**
+
 $$p \oplus q \oplus r \oplus s ...Siguientes$$
 
 *Devuelve True si el número de verdaderos es impar*
